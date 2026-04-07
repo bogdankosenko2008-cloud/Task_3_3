@@ -214,58 +214,45 @@ def main():
         print("Тип фігури:", type(max_figure).__name__)
     except FileNotFoundError:
         print("Файл input01_02.txt не знайдено")
-import turtle
 
 # створення екрану
 screen = turtle.Screen()
 screen.title("UML Diagram")
-
 t = turtle.Turtle()
 t.speed(0)
 t.hideturtle()
-
-
-# 🔲 функція для малювання класу
 def draw_class(x, y, text):
     t.penup()
     t.goto(x, y)
     t.pendown()
-
     width = 180
     height = 60
-
     # прямокутник
     for _ in range(2):
         t.forward(width)
         t.right(90)
         t.forward(height)
         t.right(90)
-
     # текст
     t.penup()
     t.goto(x + 10, y - 30)
     t.write(text, font=("Arial", 10, "normal"))
-
-
 # ➡️ стрілка (наслідування)
 def draw_arrow(x1, y1, x2, y2):
     t.penup()
     t.goto(x1, y1)
     t.pendown()
     t.goto(x2, y2)
-
-
-# 🔷 Figure
+# Figure
 draw_class(-90, 200, "Figure")
-
-# 🔷 2D
+# 2D
 draw_class(-300, 50, "Triangle")
 draw_class(-100, 50, "Rectangle")
 draw_class(100, 50, "Circle")
 draw_class(-200, -100, "Trapeze")
 draw_class(0, -100, "Parallelogram")
 
-# 🔶 3D
+#3D
 draw_class(300, 50, "Ball")
 draw_class(300, -100, "Cone")
 draw_class(-300, -250, "TriangularPyramid")
@@ -273,29 +260,23 @@ draw_class(-100, -250, "QuadrangularPyramid")
 draw_class(100, -250, "RectangularParallelepiped")
 draw_class(300, -250, "TriangularPrism")
 
-# 🔗 зв'язки
-
+#зв'язки
 # до Figure
-draw_arrow(-210, 50, -10, 200)   # Triangle
-draw_arrow(-10, 50, -10, 200)    # Rectangle
-draw_arrow(190, 50, -10, 200)    # Circle
-draw_arrow(390, 50, -10, 200)    # Ball
-
+draw_arrow(-210, 50, -10, 200)
+draw_arrow(-10, 50, -10, 200)
+draw_arrow(190, 50, -10, 200)
+draw_arrow(390, 50, -10, 200)
 # від Circle
-draw_arrow(390, -100, 190, 50)   # Cone
-
+draw_arrow(390, -100, 190, 50)
 # від Triangle
-draw_arrow(-210, -250, -210, 50) # TriangularPyramid
-draw_arrow(290, -250, -210, 50)  # TriangularPrism
-
+draw_arrow(-210, -250, -210, 50)
+draw_arrow(290, -250, -210, 50)
 # від Rectangle
-draw_arrow(-10, -250, -10, 50)   # QuadrangularPyramid
-draw_arrow(190, -250, -10, 50)   # RectangularParallelepiped
-
+draw_arrow(-10, -250, -10, 50)
+draw_arrow(190, -250, -10, 50)
 # додаткові
-draw_arrow(-210, -100, -210, 50) # Trapeze
-draw_arrow(10, -100, -10, 50)    # Parallelogram
-
+draw_arrow(-210, -100, -210, 50)
+draw_arrow(10, -100, -10, 50)
 turtle.done()
 if __name__ == "__main__":
     main()
